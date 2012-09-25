@@ -20,5 +20,6 @@
 
 - (IBAction)digitSelected:(UIButton *)sender;
 - (IBAction)operationSelected:(UIButton *)sender;
+- (IBAction)enterPressed:(UIButton *)sender;
 
 @end

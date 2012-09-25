@@ -50,10 +50,16 @@
     }
 }
 
+- (IBAction)enterPressed:(UIButton *)sender
+{
+    [[self brain] pushOperand:[[display text] doubleValue]];
+    userIsInTheMiddleOfTypingANumber = NO;
+}
+
 - (IBAction)operationSelected:(UIButton *)sender
 {
     if (userIsInTheMiddleOfTypingANumber) {
-        [[self brain] setOperand:[[display text] doubleValue]];
+        [[self brain] pushOperand:[[display text] doubleValue]];
         userIsInTheMiddleOfTypingANumber = NO;
     }
     NSString * operation = [[sender titleLabel] text];

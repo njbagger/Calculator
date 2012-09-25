@@ -15,7 +15,7 @@
     NSString* waitingOperation;
 }
 
-- (void)setOperand:(double)anOperand;
+- (void)pushOperand:(double)anOperand;
 - (double)performOperation:(NSString*)anOperation;
 
 @end
