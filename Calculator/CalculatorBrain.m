@@ -52,9 +52,14 @@
         operand = [self popOperand] * [self popOperand];
     } else if ([anOperation isEqual:@"/"]) {
         double divider = [self popOperand];
-        operand = [self popOperand] / divider;
+        double denominator = [self popOperand];
+        if (divider == 0)
+            operand = 0;
+        else
+            operand = denominator / divider;
     } else if ([anOperation isEqual:@"sqrt"]) {
-        operand = sqrt([self popOperand]);
+        double value = [self popOperand];
+        operand = (value < 0 ? 0 : value);
     } else if ([anOperation isEqual:@"sin"]) {
         operand = sin([self popOperand]);
     } else if ([anOperation isEqual:@"cos"]) {
