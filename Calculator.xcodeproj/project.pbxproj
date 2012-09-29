@@ -18,6 +18,7 @@
 		B8D0F4951610FA1F00E44A9B /* CalculatorBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D0F4941610FA1F00E44A9B /* CalculatorBrain.m */; };
 		B8D0F4971611197500E44A9B /* calculator.png in Resources */ = {isa = PBXBuildFile; fileRef = B8D0F4961611197500E44A9B /* calculator.png */; };
 		B8D0F49B16111CE500E44A9B /* calculator-hi.png in Resources */ = {isa = PBXBuildFile; fileRef = B8D0F49A16111CE500E44A9B /* calculator-hi.png */; };
+		B8EFE7BE16171BB30024316C /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8EFE7BD16171BB30024316C /* Storyboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		B8D0F4961611197500E44A9B /* calculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calculator.png; sourceTree = "<group>"; };
 		B8D0F498161119C400E44A9B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		B8D0F49A16111CE500E44A9B /* calculator-hi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calculator-hi.png"; sourceTree = "<group>"; };
+		B8EFE7BD16171BB30024316C /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		B8D0F4671610F97500E44A9B = {
 			isa = PBXGroup;
 			children = (
+				B8EFE7BD16171BB30024316C /* Storyboard.storyboard */,
 				B8D0F49A16111CE500E44A9B /* calculator-hi.png */,
 				B8D0F498161119C400E44A9B /* Default.png */,
 				B8D0F4961611197500E44A9B /* calculator.png */,
@@ -166,6 +169,7 @@
 				B8D0F48D1610F97500E44A9B /* ViewController.xib in Resources */,
 				B8D0F4971611197500E44A9B /* calculator.png in Resources */,
 				B8D0F49B16111CE500E44A9B /* calculator-hi.png in Resources */,
+				B8EFE7BE16171BB30024316C /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +299,7 @@
 				B8D0F4921610F97500E44A9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

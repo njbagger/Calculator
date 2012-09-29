@@ -10,6 +10,10 @@
 
 @interface ViewController ()
 
+{
+    BOOL userHasPressedDigit;
+}
+
 @end
 
 @implementation ViewController
@@ -42,18 +46,25 @@
 - (IBAction)digitSelected:(UIButton *)sender
 {
     NSString *digit = [[sender titleLabel] text];
-    if (userIsInTheMiddleOfTypingANumber) {
-        [display setText:[[display text] stringByAppendingString:digit]];
-    } else {
-        [display setText:digit];
+    if (!userIsInTheMiddleOfTypingANumber) {
+        if ([digit isEqualToString:@"."]) {
+            [display setText:@"0"];
+        } else {
+            [display setText:@""];
+        }
         userIsInTheMiddleOfTypingANumber = YES;
     }
+    if ((![digit isEqualToString:@"."]) || (!userHasPressedDigit)) {
+        [display setText:[[display text] stringByAppendingString:digit]];
+    }
+    userHasPressedDigit |= [digit isEqualToString:@"."];
 }
 
 - (IBAction)enterPressed:(UIButton *)sender
 {
     [[self brain] pushOperand:[[display text] doubleValue]];
     userIsInTheMiddleOfTypingANumber = NO;
+    userHasPressedDigit = NO;
 }
 
 - (IBAction)operationSelected:(UIButton *)sender
@@ -61,6 +72,7 @@
     if (userIsInTheMiddleOfTypingANumber) {
         [[self brain] pushOperand:[[display text] doubleValue]];
         userIsInTheMiddleOfTypingANumber = NO;
+        userHasPressedDigit = NO;
     }
     NSString * operation = [[sender titleLabel] text];
     double result = [[self brain] performOperation:operation];
