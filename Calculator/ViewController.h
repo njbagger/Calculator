@@ -15,11 +15,13 @@
     CalculatorBrain *brain;
     IBOutlet UILabel *display;
     BOOL userIsInTheMiddleOfTypingANumber;
+    IBOutlet UILabel *stack;
     
 }
 
 - (IBAction)digitSelected:(UIButton *)sender;
 - (IBAction)operationSelected:(UIButton *)sender;
 - (IBAction)enterPressed:(UIButton *)sender;
+- (IBAction)clearPressed:(UIButton *)sender;
 
 @end

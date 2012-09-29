@@ -17,5 +17,6 @@
 
 - (void)pushOperand:(double)anOperand;
 - (double)performOperation:(NSString*)anOperation;
+- (void)clear;
 
 @end

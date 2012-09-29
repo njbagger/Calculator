@@ -17,6 +17,10 @@
 
 @synthesize operandStack = _operandStack;
 
+- (void)clear {
+    [[self operandStack] removeAllObjects];
+}
+
 - (NSMutableArray *)operandStack
 {
     if (!_operandStack) {
