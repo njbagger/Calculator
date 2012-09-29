@@ -59,11 +59,13 @@
             operand = denominator / divider;
     } else if ([anOperation isEqual:@"sqrt"]) {
         double value = [self popOperand];
-        operand = (value < 0 ? 0 : value);
+        operand = (value < 0 ? 0 : sqrt(value));
     } else if ([anOperation isEqual:@"sin"]) {
         operand = sin([self popOperand]);
     } else if ([anOperation isEqual:@"cos"]) {
         operand = cos([self popOperand]);
+    } else if ([anOperation isEqual:@"CHS"]) {
+        operand = -1 * ([self popOperand]);
     } else if ([anOperation isEqual:@"π"]) {
         operand = M_PI;
     }

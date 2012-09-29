@@ -57,17 +57,29 @@
 
 }
 
+- (void)appendedEquals:(BOOL)on {
+    NSRange range = [[stack text] rangeOfString:@" ="];
+    if (on && range.location == NSNotFound) {
+        [self addTextToStack:@" ="];
+    } else if (!on && range.location != NSNotFound) {
+        [stack setText:[[stack text] substringToIndex:(range.location - 1)]];
+    }
+}
+
 - (void)resetStack {
     [stack setText:@""];
 }
 
 - (double)performOperation:(NSString *)operation {
+    [self appendedEquals:NO];
     [self addTextToStack:operation];
+    [self appendedEquals:YES];
     return [[self brain] performOperation:operation];
 }
 
 - (IBAction)digitSelected:(UIButton *)sender
 {
+    [self appendedEquals:NO];
     NSString *digit = [[sender titleLabel] text];
     if (!userIsInTheMiddleOfTypingANumber) {
         if ([digit isEqualToString:@"."]) {
@@ -94,8 +106,12 @@
 
 - (IBAction)deletePressed:(UIButton *)sender {
     int numberOfDigits = [[display text] length];
+    if ([[display text] characterAtIndex:(numberOfDigits-1)] == '.') {
+        userHasPressedDigit = NO;
+    }
     if (numberOfDigits <= 1) {
         [display setText:@"0"];
+        userIsInTheMiddleOfTypingANumber = NO;
     } else {
         [display setText:[[display text] substringToIndex:--numberOfDigits]];
     }
@@ -118,5 +134,17 @@
     NSString * operation = [[sender titleLabel] text];
     double result = [self performOperation:operation];
     [display setText:[NSString stringWithFormat:@"%g", result]];
+}
+
+- (IBAction)chsPressed:(UIButton *)sender {
+    if (userIsInTheMiddleOfTypingANumber) {
+        NSRange range = [[display text] rangeOfString:@"-"];
+        if (range.location == NSNotFound)
+            [display setText:[@"-" stringByAppendingString:[display text]]];
+        else
+            [display setText:[[display text] substringFromIndex:1]];
+    } else {
+        [self operationSelected:sender];
+    }
 }
 @end

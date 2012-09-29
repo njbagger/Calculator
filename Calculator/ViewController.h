@@ -24,5 +24,6 @@
 - (IBAction)enterPressed:(UIButton *)sender;
 - (IBAction)clearPressed:(UIButton *)sender;
 - (IBAction)deletePressed:(UIButton *)sender;
+- (IBAction)chsPressed:(UIButton *)sender;
 
 @end
