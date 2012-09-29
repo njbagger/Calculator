@@ -23,5 +23,6 @@
 - (IBAction)operationSelected:(UIButton *)sender;
 - (IBAction)enterPressed:(UIButton *)sender;
 - (IBAction)clearPressed:(UIButton *)sender;
+- (IBAction)deletePressed:(UIButton *)sender;
 
 @end

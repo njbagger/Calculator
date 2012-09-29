@@ -92,6 +92,15 @@
     [[self brain] clear];
 }
 
+- (IBAction)deletePressed:(UIButton *)sender {
+    int numberOfDigits = [[display text] length];
+    if (numberOfDigits <= 1) {
+        [display setText:@"0"];
+    } else {
+        [display setText:[[display text] substringToIndex:--numberOfDigits]];
+    }
+}
+
 - (IBAction)enterPressed:(UIButton *)sender
 {
     [self pushOperand:[[display text] doubleValue]];
