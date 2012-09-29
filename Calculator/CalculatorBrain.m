@@ -51,6 +51,12 @@
         operand = [self popOperand] / divider;
     } else if ([anOperation isEqual:@"sqrt"]) {
         operand = sqrt([self popOperand]);
+    } else if ([anOperation isEqual:@"sin"]) {
+        operand = sin([self popOperand]);
+    } else if ([anOperation isEqual:@"cos"]) {
+        operand = cos([self popOperand]);
+    } else if ([anOperation isEqual:@"π"]) {
+        operand = M_PI;
     }
     [self pushOperand:operand];
     return operand;
